@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+require('dotenv').config();
 
 const app = express();
 app.use(express.json());
@@ -24,14 +25,22 @@ app.post('/analyze', async (req, res) => {
 
   try {
     const response = await axios.post('https://api.gemini.com/analyze', {
-      apiKey: 'AlzaSyAHMRPORN4U9HjbDIDcj4MY-jY3-RJY8Z0', // chave api
+      apiKey: process.env.GEMINI_API_KEY, // chave api
       siteUrl: url
     });
     console.log('Analysis successful');
     res.json(response.data);
   } catch (error) {
-    console.error('Error during analysis:', error);
-    res.status(500).json({ error: 'An error occurred' });
+    if (error.response) {
+      // Erro de resposta da API do Gemini
+      res.status(error.response.status).json({ error: error.response.data });
+    } else if (error.request) {
+      // Nenhuma resposta da API
+      res.status(503).json({ error: 'No response from the Gemini API' });
+    } else {
+      // Outro erro
+      res.status(500).json({ error: 'An unexpected error occurred' });
+    }
   }
 });
 

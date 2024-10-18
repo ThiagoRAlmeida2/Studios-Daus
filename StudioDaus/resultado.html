@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+    </head>
+  <!-- montar pagina de resultado -->
+    <body>
+        <main>
+        </main>
+
+        <script>
+            // Recupera o resultado do localStorage
+            const result = JSON.parse(localStorage.getItem('analysisResult'));
+
+            if (result) {
+                // Exibe o resultado no div com id "resultado"
+                document.getElementById('resultado').innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+            } else {
+                document.getElementById('resultado').innerHTML = '<p>Resultado não disponível.</p>';
+            }
+
+            function voltar() {
+                // Limpa o localStorage e volta para a página inicial
+                localStorage.removeItem('analysisResult');
+                window.location.href = 'index.html';
+            }
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    </body>
+</html>
