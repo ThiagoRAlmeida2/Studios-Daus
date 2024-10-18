@@ -30,3 +30,10 @@
 
     FICR.
 
+##
+
+**Para funcionamento da api**
+
+```bash
+npm install 
+```
