@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang=""pt-br>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Daus</title>
+        
+        <link rel="stylesheet" href="src/css/style.css">
+        <link rel="stylesheet" href="src/css/resets.css">
+        <link rel="stylesheet" href="src/css/responsivo.css">
+
+        <link rel="shortcut icon" href="src/img/LogoDaus.png" type="image/x-icon">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <main>
+            <div class="main-container">
+
+                <!--NAVBAR DA AREA DE RESULTADO DA ANALISE-->
+                <div class="navbar-container">
+                    <nav class="navbar navbar-expand-lg"> 
+                        <div class="container-fluid d-flex flex-column flex-lg-row"> 
+                            <a class="navbar-brand" href="#">
+                                <img src="src/img/LogoDausNAVBAR.png" class="rounded float-start" width="150px" alt="Logo Da Studio Daus">
+                            </a>
+                            <ul class="navbar-nav me-auto my-2 my-lg-0 d-flex flex-wrap flex-lg-row text-center">
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="#">Analise Gratuita</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="#">Por onde Passamos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="#">Quem nos Apoia</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" aria-current="page" href="#">Nosso Casos</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="line"></div>
+                </div>
+                
+                
+        <div class="report-content mt-4 justify-content-center text-center">            
+
+            <h1>Relatorio do site</h1>
+            <!-- Relatório gerado será inserido aqui -->
+            <p>Aqui ficará o conteúdo do relatório...</p>
+        </div>
+
+        <!-- Rodapé -->
+        <div class="button-report text-center mt-5">
+            <button class="btn btn-success" onclick="exportPDF()">Exportar para PDF</button>
+            <button class="btn btn-success" onclick="exportCSV()">Exportar para CSV</button>
+        </div>
+    
+            </div>
+        </main>
+
+        <script>
+            // Recupera o resultado do localStorage
+            const result = JSON.parse(localStorage.getItem('analysisResult'));
+
+            if (result) {
+                // Exibe o resultado no div com id "resultado"
+                document.getElementById('resultado').innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+            } else {
+                document.getElementById('resultado').innerHTML = '<p>Resultado não disponível.</p>';
+            }
+
+            function voltar() {
+                // Limpa o localStorage e volta para a página inicial
+                localStorage.removeItem('analysisResult');
+                window.location.href = 'index.html';
+            }
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    </body>
+</html>
