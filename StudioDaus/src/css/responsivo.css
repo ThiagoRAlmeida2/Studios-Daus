@@ -1,2 +1,59 @@
+@media (max-width: 992px) {
 
+    /* Navbar responsividade*/
+    .navbar-nav {
+        flex-direction: column; /* Pra ficar empilhado */
+        width: 100%; /* Ocupa a largura total da tela */
+    }  
+    
+    .navbar-nav .nav-item a {
+        text-align: center; 
+        padding: 5px 0; /* Pra aumentar a area de toque */
+    }
 
+    /* Decole Daus responsividade*/
+    .decole-daus {     
+        flex-direction: column; /* Pra ficar empilhado */  
+        width: 100%;         
+    }  
+
+    .img-decolar {
+        display: flex;
+        flex-wrap: wrap; /* Pra imagens se ajustem automaticamente ao tamanho da tela*/
+        justify-content: center; /* Centraliza as logos */
+    }
+
+    .img-decolar img{        
+        margin-top: 40px; /* dar um distancia */
+        width: 90%;         
+    }
+
+    /*Area de Analise responsividade*/
+
+    .form-analise {
+        display: inline;
+    }
+
+    .form-analise input[type="text"]{
+        width: 410px;
+    }
+
+    /*Area dos cases*/
+    .cases-marcas {
+        flex-direction: column; 
+        width: 100%;
+    }
+
+    /* Ajustando as logos na área de marcas */
+    .brand-logos {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center; 
+    }
+
+    .brand-logos img {
+        width: 40%; /* Diminui o tamanho das logos em telas menores */
+        height: auto;
+    }
+
+}

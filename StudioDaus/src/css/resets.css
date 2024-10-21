@@ -8,3 +8,7 @@ body {
     overflow-x: hidden;
 }
 
+/* Esconde os alertas inicialmente */
+.alert {
+    display: none; 
+}
