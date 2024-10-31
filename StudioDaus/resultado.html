@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
+        <!-- Firebase App (base) -->
+        <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js"></script>
+        <!-- Firebase Database -->
+        <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-database.js"></script>
+        <!-- Seu arquivo firebase.js -->
+        <script src="services/firebase.js" defer></script>
+
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <title>Daus</title>
         
         <link rel="stylesheet" href="src/css/style.css">
         <link rel="stylesheet" href="src/css/resets.css">
         <link rel="stylesheet" href="src/css/responsivo.css">
-
         <link rel="shortcut icon" href="src/img/LogoDaus.png" type="image/x-icon">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
@@ -17,7 +22,6 @@
     <body>
         <main>
             <div class="main-container">
-
                 <!--NAVBAR DA AREA DE RESULTADO DA ANALISE-->
                 <div class="navbar-container">
                     <nav class="navbar navbar-expand-lg"> 
@@ -58,11 +62,9 @@
                     <button class="btn btn-success" onclick="exportPDF()">Exportar para PDF</button>
                     <button class="btn btn-success" onclick="exportCSV()">Exportar para CSV</button>
                 </div>
-    
             </div>
         </main>
 
-        <script src="services/firebase.js"></script>
         <script>
             const result = JSON.parse(localStorage.getItem('analysisResult'));
 

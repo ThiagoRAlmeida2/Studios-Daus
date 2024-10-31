@@ -12,11 +12,12 @@ const firebaseConfig = {
   appId: "APP_ID"
 };
 
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+// Inicialização
+const app = firebase.initializeApp(firebaseConfig);
+const database = firebase.database(app);
 
 function salvarDados(email, link, respostaIA) {
-    const usuariosRef = ref(database, 'usuarios');
+    const usuariosRef = database.ref('usuarios');
 
     const novoUsuario = {
         email: email,
@@ -24,7 +25,7 @@ function salvarDados(email, link, respostaIA) {
         respostaIA: respostaIA || "" 
     };
 
-    push(usuariosRef, novoUsuario)
+    usuariosRef.push(novoUsuario)
         .then(() => {
             console.log("Novo usuário adicionado com sucesso!");
         })
