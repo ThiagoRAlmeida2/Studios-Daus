@@ -1,6 +1,6 @@
 // Importa e inicializa o Firebase
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, push } from "firebase/database";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.19.0/firebase-app.js';
+import { getDatabase } from 'https://www.gstatic.com/firebasejs/9.19.0/firebase-database.js';
 
 const firebaseConfig = {
   apiKey: "API_KEY",
@@ -32,3 +32,5 @@ function salvarDados(email, link, respostaIA) {
             console.error("Erro ao adicionar novo usuário:", error);
         });
 }
+
+export { salvarDados };
