@@ -74,9 +74,6 @@
                 if (result) {
                     // Exibe o JSON formatado
                     document.getElementById('resultado').innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
-                    
-                    // Salva os dados no Firebase
-                    salvarDados('email_exemplo@exemplo.com', 'link_do_site.com', JSON.stringify(result, null, 2));
                 } else {
                     document.getElementById('resultado').innerHTML = '<p>Resultado não disponível.</p>';
                 }
