@@ -1,9 +1,16 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
+const PORT = 3000;
 require('dotenv').config();
 
 const app = express();
 app.use(express.json());
+
+app.use(cors({
+  origin: 'http://127.0.0.1:3001' // domínio que faz a requisição
+}));
+
 
 const isValidUrl = (string) => {
   try {
@@ -14,7 +21,7 @@ const isValidUrl = (string) => {
   }
 };
 
-app.post('/analyze', async (req, res) => {
+app.post('/analyze', async (req, res) =>{
   const { url } = req.body;
   console.log(`Analyzing site: ${url}`);
 
@@ -44,4 +51,10 @@ app.post('/analyze', async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log('Server is running on port 3000'));
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`);
+});
+
+app.get('/', (req, res) => {
+  res.send('Servidor está funcionando!');
+});
