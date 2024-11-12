@@ -27,7 +27,7 @@ app.post('/analyze', async (req, res) =>{
 
   if (!url || !isValidUrl(url)) {
     console.error('Invalid URL provided');
-    return res.status(400).json({ error: 'Invalid URL provided' });
+    return res.status(400).json({ error: 'Url Invalido' });
   }
 
   try {
@@ -35,7 +35,7 @@ app.post('/analyze', async (req, res) =>{
       apiKey: process.env.GEMINI_API_KEY, // chave api
       siteUrl: url
     });
-    console.log('Analysis successful');
+    console.log('Analise feita com sucesso');
     res.json(response.data);
   } catch (error) {
     if (error.response) {
@@ -43,10 +43,10 @@ app.post('/analyze', async (req, res) =>{
       res.status(error.response.status).json({ error: error.response.data });
     } else if (error.request) {
       // Nenhuma resposta da API
-      res.status(503).json({ error: 'No response from the Gemini API' });
+      res.status(503).json({ error: 'Não tem resposta da API Gemini' });
     } else {
       // Outro erro
-      res.status(500).json({ error: 'An unexpected error occurred' });
+      res.status(500).json({ error: 'Ocorreu um erro esperado' });
     }
   }
 });
