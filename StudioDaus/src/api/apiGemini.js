@@ -6,6 +6,7 @@ require('dotenv').config();
 
 const app = express();
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'StudioDaus'))); // servir arquivos estáticos
 
 app.use(cors({
   origin: 'http://127.0.0.1:3001' // domínio que faz a requisição
