@@ -4,14 +4,14 @@ import { getDatabase, ref, push } from 'https://www.gstatic.com/firebasejs/9.19.
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDT926A7CmQ4LNlNEGntJmB1vJ2tqvPidc",
-    authDomain: "daus-bbaa5.firebaseapp.com",
-    databaseURL: "https://daus-bbaa5-default-rtdb.firebaseio.com",
-    projectId: "daus-bbaa5",
-    storageBucket: "daus-bbaa5.firebasestorage.app",
-    messagingSenderId: "631298869552",
-    appId: "1:631298869552:web:bd028ba32541ccb2f160f5"
-  };
+  apiKey: "API_KEY",
+  authDomain: "PROJECT_ID.firebaseapp.com",
+  databaseURL: "https://PROJECT_ID.firebaseio.com",
+  projectId: "PROJECT_ID",
+  storageBucket: "PROJECT_ID.appspot.com",
+  messagingSenderId: "SENDER_ID",
+  appId: "APP_ID"
+};
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
