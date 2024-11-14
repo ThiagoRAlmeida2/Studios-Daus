@@ -72,8 +72,8 @@
 
                 // Verifica se o resultado existe
                 if (result) {
-                    // Exibe o JSON formatado
-                    document.getElementById('resultado').innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+                    const texto = result.message.response.candidates[0].content.parts[0].text;
+                    document.getElementById('resultado').textContent = texto;
                 } else {
                     document.getElementById('resultado').innerHTML = '<p>Resultado não disponível.</p>';
                 }

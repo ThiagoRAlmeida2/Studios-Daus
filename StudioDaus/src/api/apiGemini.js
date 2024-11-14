@@ -1,3 +1,4 @@
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
@@ -6,12 +7,14 @@ require('dotenv').config();
 
 const app = express();
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'StudioDaus'))); // servir arquivos estáticos
 
 app.use(cors({
   origin: 'http://127.0.0.1:3001' // domínio que faz a requisição
 }));
 
+const client = new GoogleGenerativeAI("AIzaSyB1CffCSHIyt9MSP4KXKk504OMq3E0aTyE");
+const model = client.getGenerativeModel({model: "gemini-1.5-flash"});
+const chat = model.startChat({ history: [] });
 
 const isValidUrl = (string) => {
   try {
@@ -32,13 +35,15 @@ app.post('/analyze', async (req, res) =>{
   }
 
   try {
-    const response = await axios.post('https://api.gemini.com/analyze', {
-      apiKey: process.env.GEMINI_API_KEY, // chave api
-      siteUrl: url
-    });
+    console.log('Enviando a análise para a API do Gemini');
+    mensagem_padrao = `Por favor, analise o deisgn do site ${url} e me retorne um resumo de como ele foi feito e melhorias para fazer. Escreva sem símbolos, aspas ou coisas do tipo.`;
+    const response = await chat.sendMessage(mensagem_padrao);
     console.log('Analise feita com sucesso');
-    res.json(response.data);
+    res.json({
+      message: response,
+    });
   } catch (error) {
+    console.log('Erro ao fazer a análise:', error.message);
     if (error.response) {
       // Erro de resposta da API do Gemini
       res.status(error.response.status).json({ error: error.response.data });
