@@ -1,14 +1,23 @@
-@media (max-width: 992px) {
+@media (max-width: 480px) {
 
-    /* Navbar responsividade*/
-    .navbar-nav {
-        flex-direction: column; /* Pra ficar empilhado */
-        width: 100%; /* Ocupa a largura total da tela */
-    }  
-    
-    .navbar-nav .nav-item a {
-        text-align: center; 
-        padding: 5px 0; /* Pra aumentar a area de toque */
+    header {
+        .navbar-nav {
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            justify-content: space-around;
+        }  
+
+        .navbar-brand img {
+            width: 65%;
+            padding: 15px 0 0 30px;
+        }
+        
+        .navbar-nav .nav-item a {
+            text-align: center; 
+            font-size: 14px;
+            padding: 0;
+        }        
     }
 
     /* Decole Daus responsividade*/
@@ -27,7 +36,7 @@
         margin-top: 40px; /* dar um distancia */
         width: 90%;         
     }
-
+ 
     /*Area de Analise responsividade*/
 
     .form-analise {
