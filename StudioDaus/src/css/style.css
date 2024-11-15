@@ -1,23 +1,33 @@
-/*Navbar*/
 
-.navbar {
-    background-color: white;
+/* NAVBAR */
+header {
+    .navbar {
+        background-color: white;
+        
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .nav-item {
+        display: flex;
+        text-transform: uppercase;
+        margin: 5px 0;
+    }
+    
+    .nav-item a:hover{
+        color: #E582FC;
+    }
+    
+    .line {
+        width: 90%;
+        margin: 0 auto 35px;
+        border: 1px solid #E582FC;   
+        opacity: 100%; 
+    }
 }
 
-.nav-item {
-    text-transform: uppercase;
-    margin: 5px 0;
-}
-
-.nav-item a:hover{
-    color: #E582FC;
-}
-
-.line {
-    width: 90%;
-    margin: 0 auto 35px;
-    border: 1px solid #E582FC;    
-}
 
 /*Area do Decolar*/
 
