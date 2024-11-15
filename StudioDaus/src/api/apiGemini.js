@@ -36,7 +36,9 @@ app.post('/analyze', async (req, res) =>{
 
   try {
     console.log('Enviando a análise para a API do Gemini');
-    mensagem_padrao = `Por favor, analise o deisgn do site ${url} e me retorne um resumo de como ele foi feito e melhorias para fazer. Escreva sem símbolos, aspas ou coisas do tipo.`;
+    mensagem_padrao = `Por favor, analise o deisgn do site ${url} 
+    e me retorne um resumo de como ele foi feito e melhorias para fazer.
+    Escreva sem símbolos, aspas ou coisas do tipo.`;
     const response = await chat.sendMessage(mensagem_padrao);
     console.log('Analise feita com sucesso');
     res.json({
