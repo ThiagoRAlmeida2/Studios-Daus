@@ -1,9 +1,10 @@
+body {
+    font-family: 'Poppins', sans-serif; 
+}
 
 /* NAVBAR */
-header {
     .navbar {
-        background-color: white;
-        
+        background-color: white;        
         display: flex;
         align-items: center;
         text-align: center;
@@ -12,7 +13,6 @@ header {
     
     .nav-item {
         display: flex;
-        text-transform: uppercase;
         margin: 5px 0;
     }
     
@@ -26,8 +26,15 @@ header {
         border: 1px solid #E582FC;   
         opacity: 100%; 
     }
-}
 
+    .navbar-container {
+        padding-left: 100px;
+    }
+
+    .navbar-container ul {
+        padding-left: 100px;
+    }
+    
 
 /*Area do Decolar*/
 
@@ -39,9 +46,31 @@ header {
     background-color: white;
     cursor: pointer;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    color: #B242CC;
+    font-weight: bold;
 }
 
+.decole-daus {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; 
+}
 
+.decolar p {
+    margin-left: 0;
+}
+
+.decolar {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.img-decolar img {
+    width: 100%;
+    height: auto;
+}
 /*Area da analise da IA*/
 
 .header-analise h1 {
@@ -92,19 +121,20 @@ header {
 
 .cases-marcas button {
     font-size: 15px;
-    padding: 5px 15px;
+    padding: 3px 10px; 
     border-radius: 10px;
     border: 1px solid #B242CC;
     background-color: white;
     cursor: pointer;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     width: 300px;
-    height: 100px;
+    height: 60px;
 }
 
-.cases-marcas img{
-    width: 200px;
-    height: auto;
+.cases-marcas img {
+    object-fit: contain; 
+    height: 100%;
+    width: auto;
 }
 
 .brand-logos img {
@@ -131,32 +161,50 @@ header {
 }
 
 /* Entre em contato */
-.contact-form {
-    height: auto;
-    border-radius: 10px;
-    border: 1px solid #E582FC;
+
+.header-contact {
+    margin: 0;
+    padding: 0; 
+}
+
+.form-contact {
+    max-width: 450px; 
+    margin: 0 auto; 
+    padding: 20px; 
+    border: 1px solid #B242CC;
+    border-radius: 5px; 
+  }
+  
+  .form-contact .form-label {
+    text-decoration: #999; 
+  }
+  
+  .form-contact .form-control,
+  .form-contact .form-select,
+  .form-contact .form-control:focus,
+  .form-contact .form-select:focus {
+    border-color: #cbc9c9; 
+    background-color:  #fcfbfb;
+    box-shadow: none;
+    padding: 12px;
+  }
+  
+  .form-contact .btn-primary {
+    background-color: #ffffff; 
+    border-color: #B242CC; 
+    color: #B242CC;;
+    width: 100%; 
+    padding: 10px; 
+    font-size: 16px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-.form-contact input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.form-contact .btn-primary:hover{
+    background-color: #B242CC; 
+    color: #ffffff; 
+    border-color: #B242CC; 
 }
-
-.form-contact input[type="submit"] {
-    background-color: #B242CC;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.form-contact input[type="submit"]:hover {
-    background-color: #9a36a8;
-}
-
+  
 .onde-estamos {
     height: auto;
     border-radius: 10px;
@@ -164,9 +212,6 @@ header {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-.mapa {
-    margin-top: 20px;
-}
 
 /*Footer*/
 
