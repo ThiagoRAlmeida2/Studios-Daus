@@ -2,14 +2,14 @@ const { GoogleGenerativeAI } = require('@google/generative-ai');
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
-const PORT = 3000;
+const PORT = 2001;
 require('dotenv').config();
 
 const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: 'http://127.0.0.1:3001' // domínio que faz a requisição
+  origin: 'http://127.0.0.1:3000' // domínio que faz a requisição
 }));
 
 const client = new GoogleGenerativeAI("AIzaSyB1CffCSHIyt9MSP4KXKk504OMq3E0aTyE"); // CASO NÃO FUNCIONE, CRIE UMA NOVA CHAVE DA API NESSA URL https://aistudio.google.com/apikey
