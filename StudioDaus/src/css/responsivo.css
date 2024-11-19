@@ -1,82 +1,156 @@
 @media (max-width: 480px) {
-
-        .navbar-nav {
-            flex-direction: column;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-        }  
-
-        .navbar-brand img {
-            width: 65%;
-            padding: 15px 0 0 30px;
-        }
-        
-        .navbar-nav .nav-item a {
-            text-align: center; 
-            font-size: 14px;
-            padding: 0;
-        }        
-
-    /* Decole Daus responsividade*/
-    .decole-daus {
-        flex-direction: column;
-        align-items: center;
+    .navbar-nav {
+        flex-direction: column; /* Alinha os itens verticalmente */
+        align-items: center; /* Centralizar os itens */
+        width: 100%; /* Faz a navbar ocupar toda a largura */
+    }  
+  
+    .nav-item {
+        margin: 10px 0; /* Ajuste do espaçamento */
     }
-    .decolar button {
-        font-size: 12px;
-        padding: 3px 10px;
-    }
-    .decole-daus {
-        font-size: 16px;
-    }
-    /*Area de Analise responsividade*/
-
-    .form-analise {
-        display: inline;
-    }
-
-    .form-analise input[type="text"]{
-        width: 410px;
-    }
-
-    /*Area dos cases*/
-    .cases-marcas {
+  
+    .navbar-nav .nav-item a {
+        font-size: 14px;
+        padding: 5px 0;
+    }  
+  }
+  
+  @media (max-width: 768px) {
+  
+    /* Narvar */
+    .navbar-nav {
         flex-direction: column; 
-        width: 100%;
+        align-items: center; 
+        width: 100%; 
+    }  
+    
+    .nav-item {
+        margin: 10px 0; 
     }
-
-    /* Ajustando as logos na área de marcas */
-    .brand-logos {
-        display: flex;
-        flex-wrap: wrap; 
-        justify-content: center; 
+    
+    .navbar-nav .nav-item a {
+        font-size: 14px;
+        padding: 5px 0;
+    }  
+    
+    /*área de análise*/
+    .free-analise {      
+      padding: 20px;
     }
-
-    .brand-logos img {
-        width: 40%; /* Diminui o tamanho das logos em telas menores */
-        height: auto;
+    
+    .form-analise {
+      margin: 0 auto;
+      max-width: 70%;
     }
-
-}
-
-/* Decole Daus responsividade*/
-
-@media (max-width: 768px) {
-    .decole-daus {
-        flex-direction: column;
-        align-items: center;
+    
+    
+    .form-analise label, 
+    .form-analise input, 
+    .form-analise button,
+    .form-analise input[type="email"] {
+      width: 100%;
     }
-}
-
-/* Estilos para telas menores que 576px */
-@media (max-width: 576px) {
-    .decolar button {
-        font-size: 12px;
-        padding: 3px 10px;
+  
+    /* Area das imagens das marcas*/
+    /* Por onde passamos*/
+    .cases-marcas  {
+      flex-direction: column;
     }
-    .decole-daus {
-        font-size: 16px;
+  
+    /*Imagens Quem nos apoia e Por onde passamos*/
+    .colum-marcas-1, .colum-marcas-2, .more-cases-marcas, .supports-us-marcas {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 70%;
     }
-}
-
+  
+    /* "Entre em contato" em coluna em telas menores */
+    .row {
+      flex-direction: column;
+    }
+    .col-md-6 {
+      max-width: 100%;
+    }
+    .mapa iframe {
+      width: 100%;
+      height: 300px;
+    }
+  
+  }
+    
+  /* Ajuste para telas medias e grandes */
+  
+  @media (max-width: 769px) {
+    /* Narvar */
+    .navbar-nav {
+        flex-direction: column; 
+        align-items: center; 
+        width: 100%; 
+    }  
+  
+    .nav-item {
+        margin: 10px 0; 
+    }
+  
+    .navbar-nav .nav-item a {
+        font-size: 14px;
+        padding: 5px 0;
+    } 
+    
+    /*área de análise*/
+    .free-analise {
+      display: flex;
+      flex-direction: column;
+      padding: 30px;  
+    }
+    
+    .header-analise {
+      margin-bottom: 20px;
+    }
+    
+    .form-analise {
+      max-width: 70%;
+    }
+    
+    .form-analise input, 
+    .form-analise button {
+      width: 100%;
+    }
+  
+  /* Tornar "Entre em contato" em coluna em telas menores */
+  
+  }
+  
+  /* Ajustes para telas maiores (comportamento padrão para telas grandes) */
+  @media (min-width: 769px) {
+    .cases-marcas {
+      flex-direction: row;
+      gap: 50px;
+    }
+    .supports-us .brand-logos {
+      flex-direction: row;
+      justify-content: space-between;
+    }  
+    .mapa iframe {
+      max-width: 100%;
+    }
+  
+    .navbar-nav {
+      flex-direction: column; /* Alinha os itens verticalmente */
+      align-items: center; /* Centraliza os itens */
+      width: 100%; /* Faz a navbar ocupar toda a largura */
+  }  
+  
+  .nav-item {
+      margin: 10px 0; /* Ajuste do espaçamento */
+  }
+  
+  .navbar-nav .nav-item a {
+      font-size: 14px;
+      padding: 5px 0;
+  }  
+  
+  }
+  
+  
