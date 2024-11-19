@@ -255,7 +255,7 @@
                 from_name: name,
                 from_email: email,
                 subject: subject,
-                message: `Assunto: ${subject}\n\nMensagem: ${message}` // Usando mensagem concatenada
+                message: `Assunto: ${subject}\n E-mail: ${email}\n\nMensagem: ${message}` // Usando mensagem concatenada
             })
             .then(function(response) {
                 console.log("E-mail enviado com sucesso!", response.status, response.text);
