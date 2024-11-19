@@ -72,6 +72,14 @@
                             <input type="email" id="email" name="email" required><br>
                             <input type="submit" class="mt-3" id="analise" name="analise" value="Analisar">
                         </form>
+                        <div id="loadingCard" class="loading-card" style="display: none;">
+                            <div class="loading-content">
+                                <p>Carregando...</p>
+                                <div class="spinner-border" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- Cases do Daus -->
@@ -131,30 +139,30 @@
                           <div class="col-md-6">
                             <p><img src="src/img/LogoDausPRETA.png" alt="Logo da Daus cor preta" width="40" class="ml-2">Fale com DAUS</p>
                             <!-- Form contato -->
-                           <form class="form-contact">
-                             <div class="mb-3">
-                               <label for="nameInput" class="form-label">Nome</label>
-                               <input type="text" class="form-control" id="nameInput" placeholder="Digite o seu nome">
-                           </div>
-                         <div class="mb-3">
-                           <label for="emailInput" class="form-label">Email</label>
-                           <input type="email" class="form-control" id="emailInput" placeholder="Digite o seu email">
+                    <form class="form-contact">
+                                <div class="mb-3">
+                                <label for="nameInput" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nameInput" placeholder="Digite o seu nome">
+                            </div>
+                            <div class="mb-3">
+                            <label for="emailInput" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="emailInput" placeholder="Digite o seu email">
+                            </div>
+                        <div class="mb-3">
+                                <label for="subjectSelect" class="form-label">Assunto</label>
+                                    <select id="subjectSelect" class="form-select">
+                                        <option selected>Selecione uma opção</option>
+                                        <option>Contratação</option>
+                                        <option>Negociação</option>
+                                        <option>Consulta junto a empresa</option>
+                                </select>
+                            </div>
+                        <div class="mb-3">
+                            <label for="commentTextArea" class="form-label">Digite o seu comentário</label>
+                        <textarea class="form-control" id="commentTextArea" rows="3" placeholder="Digite o seu comentário"></textarea>
                         </div>
-                       <div class="mb-3">
-                            <label for="subjectSelect" class="form-label">Assunto</label>
-                                <select id="subjectSelect" class="form-select">
-                                    <option selected>Selecione uma opção</option>
-                                    <option>Contratação</option>
-                                    <option>Negociação</option>
-                                    <option>Consulta junto a empresa</option>
-                            </select>
-                        </div>
-                     <div class="mb-3">
-                        <label for="commentTextArea" class="form-label">Digite o seu comentário</label>
-                       <textarea class="form-control" id="commentTextArea" rows="3" placeholder="Digite o seu comentário"></textarea>
-                    </div>
-                     <button type="submit" class="btn btn-primary">Enviar</button>
-                     </form>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
                           </div>
                           <div class="col-md-6">
                             <p><img src="src/img/LogoDausPRETA.png" alt="Logo da Daus cor preta" width="40">Onde estamos</p>
@@ -184,6 +192,8 @@
                     event.preventDefault();
                     const email = document.getElementById("email").value;
                     const link = document.getElementById("link-site").value;
+
+                    document.getElementById("loadingCard").style.display = "flex";
 
                     try {
                         // Enviar a URL para a API
@@ -219,5 +229,48 @@
                     document.getElementById("userForm").reset();
                 });
             </script>
-        </body>
-    </html>
+
+        <!-- Script para envio de formulário para email -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function () {
+                emailjs.init("gIR8yWSP4_5teC-DE"); // Substitua pela sua chave pública do EmailJS
+            })();
+        </script>
+        <script>
+            document.querySelector(".form-contact").addEventListener("submit", function(event) {
+            event.preventDefault();// Obter os valores dos campos do formulário
+
+            const name = document.getElementById("nameInput").value;
+            const email = document.getElementById("emailInput").value;
+            const subject = document.getElementById("subjectSelect").value;
+            const message = document.getElementById("commentTextArea").value;
+
+            // Exibir um card de carregamento
+            document.getElementById("loadingCard").style.display = "flex";
+
+            // Enviar o e-mail
+            emailjs.send("service_8hckgpt", "template_nxhkbrw", {
+                to_name: "StudioDaus", // Substitua pelo nome do destinatário ou colete do formulário se necessário
+                from_name: name,
+                from_email: email,
+                subject: subject,
+                message: `Assunto: ${subject}\n\nMensagem: ${message}` // Usando mensagem concatenada
+            })
+            .then(function(response) {
+                console.log("E-mail enviado com sucesso!", response.status, response.text);
+                alert("E-mail enviado com sucesso!");
+            }, function(error) {
+                console.log("Erro ao enviar o e-mail:", error);
+                alert("Erro ao enviar o e-mail. Tente novamente mais tarde.");
+            })
+            .finally(function() {
+            // Limpar o formulário após o envio
+            this.reset();
+            // Ocultar o card de carregamento após o alerta ser fechado
+            document.getElementById("loadingCard").style.display = "none";
+            }.bind(this)); // Bind para garantir que 'this' se refere ao formulário
+            });
+        </script>
+    </body> 
+</html>
