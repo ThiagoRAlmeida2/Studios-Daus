@@ -113,17 +113,29 @@
             </div>
         </main>
 
+        <!-- Estilo para justificar o texto -->
+        <style>
+            .justificado {
+                text-align: justify;
+            }
+        </style>
+        <!-- script o relatorio -->
+
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 // Recupera o resultado da análise
                 const result = JSON.parse(localStorage.getItem('analysisResult'));
 
                 // Verifica se o resultado existe
+                const resultadoElemento = document.getElementById('resultado');
                 if (result) {
                     const texto = result.message.response.candidates[0].content.parts[0].text;
-                    document.getElementById('resultado').textContent = texto;
+                    resultadoElemento.textContent = texto;
+
+                    // Adiciona a classe para justificar o texto
+                    resultadoElemento.classList.add('justificado');
                 } else {
-                    document.getElementById('resultado').innerHTML = '<p>Resultado não disponível.</p>';
+                    resultadoElemento.innerHTML = '<p>Resultado não disponível.</p>';
                 }
             });
         </script>
