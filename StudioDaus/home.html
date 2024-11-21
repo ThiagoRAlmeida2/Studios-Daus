@@ -192,9 +192,9 @@
                     event.preventDefault();
                     const email = document.getElementById("email").value;
                     const link = document.getElementById("link-site").value;
-
+            
                     document.getElementById("loadingCard").style.display = "flex";
-
+            
                     try {
                         // Enviar a URL para a API
                         const response = await fetch('http://localhost:2001/analyze', { // Altere para o URL da sua API
@@ -204,27 +204,30 @@
                             },
                             body: JSON.stringify({ url: link })
                         });
-
+            
                         if (!response.ok) {
-                           throw new Error(`Erro ao analisar o site. Erro: ${response.error, response.status}`);
+                            throw new Error(`Erro ao analisar o site. Erro: ${response.status}`);
                         }
-
+            
                         const analysisResult = await response.json();
                         
                         // Exibir o resultado da análise
                         localStorage.setItem('analysisResult', JSON.stringify(analysisResult));
                         window.location.href = 'resultado.html'; // Redireciona para a página de resultado
-
+            
                         // Salvar os dados no Firebase
-                        await salvarDados(email, link, JSON.stringify(analysisResult));
-
+                        await salvarDados(email, link, JSON.stringify(analysisResult)); // Certifique-se de que a resposta é uma string
+            
                     } catch (error) {
                         console.log(`${error.message}`);
                         document.getElementById("alert-message").textContent = "Erro ao solicitar a análise.";
                         document.getElementById("alert").classList.replace("alert-success", "alert-danger");
                         document.getElementById("alert").style.display = "block";
+                    } finally {
+                        // Ocultar o card de carregamento em caso de erro ou sucesso
+                        document.getElementById("loadingCard").style.display = "none";
                     }
-
+            
                     // Limpa o formulário após o envio
                     document.getElementById("userForm").reset();
                 });
