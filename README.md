@@ -47,11 +47,44 @@ Para configurar o projeto localmente, siga os passos abaixo:
     - Crie um projeto no [Firebase](https://console.firebase.google.com/).
     - Obtenha as credenciais do seu projeto e insira-as no arquivo firebase.js na pasta [/src/service/firebase.js](StudioDaus/src/service/firebase.js).
 
-4. **Executando o projeto:**
-   ```bash  
-   npm start
+4. **Configuração da Api do Gemini:**
+    - Crie uma conta no [Google Cloud](https://cloud.google.com/).
+    - Crie uma conta no [Gemini](https://gemini.ai/).
+    - Obtenha as credenciais do seu projeto e insira-as no arquivo apiGemini.js na pasta [/src/api/apiGemini.js](StudioDaus/src/api/apiGemini.js).
+
+5. **Configuração do EmailJS:**
+    - Crie uma conta no [EmailJS](https://emailjs.com/).
+    - Obtenha as credenciais do seu projeto e insira-as no arquivo index.html na pasta [/src/index.html](StudioDaus/src/home.html).
+    - Integre essas credenciais ao código do projeto para que os formulários possam enviar e-mails para os endereços cadastrados.
+
+### Executando o projeto:
+
+1. **Usando o terminal com Python:**
+
+   Se você possui o Python instalado, pode rodar o arquivo diretamente com um servidor HTTP. Siga os passos abaixo:
+
+   ```bash
+   cd seu_usuairo/sua_pasta/Studios-Daus/StudioDaus
    ```
-   A aplicação estará disponível em http://localhost:3000. (ou em uma outra porta se você configurou)
+
+   E então, execute o comando abaixo:
+
+   ```python
+   python3 -m http.server 3001
+   ```
+
+   Isso iniciará um servidor na porta 3001, e você poderá acessar o projeto no navegador em http://localhost:3001.
+   E acesse a pasta StudioDaus e nela abra a home.html
+
+2. **Usando a extensão "Live Server" no VSCode:**
+
+- Instale a extensão Live Server no VSCode (disponível no marketplace).
+- Abra o arquivo home.html no VSCode.
+- Clique com o botão direito no editor e selecione "Open with Live Server".
+- Por padrão, o Live Server usará uma porta como 5500. Se quiser especificar a porta 3001:
+- Vá para as configurações da extensão e adicione "liveServer.settings.port": 3001 no arquivo de configurações do VSCode.
+
+A aplicação estará disponível em "http://localhost:3001". (ou em uma outra porta se você configurou)
 
 ## Como contribuir
 * Faça um fork do projeto
