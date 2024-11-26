@@ -13,7 +13,7 @@ app.use(cors({
   origin: 'http://127.0.0.1:3000' // domínio que faz a requisição
 }));
 
-const client = new GoogleGenerativeAI("AIzaSyDQN8zlVAZsEyF0mkeKCNRwMbiDgzPi1zo"); // CASO NÃO FUNCIONE, CRIE UMA NOVA CHAVE DA API NESSA URL https://aistudio.google.com/apikey
+const client = new GoogleGenerativeAI("Coloque sua chave da Api"); // CASO NÃO FUNCIONE, CRIE UMA NOVA CHAVE DA API NESSA URL https://aistudio.google.com/apikey
 const model = client.getGenerativeModel({model: "gemini-1.5-flash"});
 const chat = model.startChat({ history: [] });
 

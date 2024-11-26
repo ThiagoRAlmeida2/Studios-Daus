@@ -237,7 +237,7 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
         <script type="text/javascript">
             (function () {
-                emailjs.init("gIR8yWSP4_5teC-DE"); // Substitua pela sua chave pública do EmailJS
+                emailjs.init("YOUR_PUBLIC_KEY"); // Substitua pela sua chave pública do EmailJS armazenada em local seguro
             })();
         </script>
         <script>
@@ -253,8 +253,8 @@
             document.getElementById("loadingCard").style.display = "flex";
 
             // Enviar o e-mail
-            emailjs.send("service_8hckgpt", "template_nxhkbrw", {
-                to_name: "StudioDaus", // Substitua pelo nome do destinatário ou colete do formulário se necessário
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", { // Substitua pelo ID do serviço e template do EmailJS armazenados em local seguro
+            to_name: "DESTINATARY_NAME", // Substitua pelo nome do destinatário ou colete do formulário se necessário
                 from_name: name,
                 from_email: email,
                 subject: subject,
