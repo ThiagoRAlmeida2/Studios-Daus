@@ -8,6 +8,7 @@ require('dotenv').config();
 const app = express();
 app.use(express.json());
 
+// Caso use o python3 para rodar o servidor http, é necessário configurar o CORS para permitir a requisição
 app.use(cors({
   origin: 'http://127.0.0.1:3000' // domínio que faz a requisição
 }));
